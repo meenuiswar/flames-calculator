@@ -1,0 +1,32 @@
+<head>
+    <title>Flames</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Spectral&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body class="flex flex-column align-center justify-center">
+
+    <div class="box flex align-center justify-center">
+        <div class="flex flex-column">
+            <div class="flex flex-row justify-around">
+                <div class="heading"> FLAMES</div>
+            </div>
+            <div class="flex flex-row justify-around margin20">
+                <div> First name:</div><input class="input" type="text" name="person1" id="p1">
+            </div>
+            <div class="flex flex-row justify-around margin20">
+                <div> Second name:</div><input class="input" type="text" name="person2" id="p2">
+            </div>
+            <div class="flex flex-row justify-around margin20">
+                <button class="button " type="button" onclick="calculateFlames()">
+                    FLAMES</button>
+                <button class="button " type="button" onclick="clearText()">
+                    Clear</button>
+            </div>
+            <div class="flex flex-row align-center justify-center result margin-left" id="result">
+
+            </div>
+        </div>
+    </div>
+</body>
