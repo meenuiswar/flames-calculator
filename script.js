@@ -14,24 +14,27 @@ function calculateFlames() {
         document.getElementById("result").style.fontSize = "20px";
     }
     else {
-        var name = name1 + name2;
-        var m = 0;
-        for (m = 0; m < name.length; m++) {
-            var count = (name.match(new RegExp(name[m], "g")) || []).length;
-            if (count > 1) {
-                var ch = name[m];
-                while (count > 0) {
-                    name = name.replace(ch, '');
-                    count--;
+        var i, j;
+        for (i = 0; i < name1.length; i++) {
+            for (j = 0; j < name2.length; j++) {
+                if (name1[i] == name2[j]) {
+                    var ch = name1[i];
+                    if (ch != '#') {
+                        name1 = replaceAll(name1, ch, '#');
+                        name2 = replaceAll(name2, ch, '#');
+                    }
                 }
             }
         }
+        name1 = replaceAll(name1, '#', '');
+        name2 = replaceAll(name2, '#', '');
+        console.log(name1 + name2);
+        name = name1 + name2;
         var resultLength = name.length;
         var baseInput = 'flames';
         var relationIs = '';
         if (resultLength > 0) {
             while (baseInput.length != 1) {
-                console.log(baseInput);
                 var tmpLen = resultLength % baseInput.length; //finding char position to strike
                 if (tmpLen != 0) {
                     temp = baseInput.substring(tmpLen) + baseInput.substring(0, tmpLen - 1); //Append part start from next char to strike and first charater to char before strike.
@@ -47,7 +50,14 @@ function calculateFlames() {
         document.getElementById("result").innerHTML = getResultText(relationIs);
     }
 }
-
+function replaceAll(str, ch1, ch2) {
+    var count = (str.match(new RegExp(ch1, "g")) || []).length;
+    while (count > 0) {
+        str = str.replace(ch1, ch2);
+        count--;
+    }
+    return str;
+}
 function getResultText(ch) {
     switch (ch) {
         case 'f':
