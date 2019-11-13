@@ -28,7 +28,6 @@ function calculateFlames() {
         }
         name1 = replaceAll(name1, '#', '');
         name2 = replaceAll(name2, '#', '');
-        console.log(name1 + name2);
         name = name1 + name2;
         var resultLength = name.length;
         var baseInput = 'flames';
